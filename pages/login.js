@@ -1,3 +1,4 @@
+import Link from "next/link"
 
 const Login = () => {
     return (
@@ -26,7 +27,11 @@ const Login = () => {
             </div>
 
             <div className="border-border border rounded-lg max-w-lg w-[95%] lg:w-80 p-4 mt-6 text-center">
-                <h1 className="text-sm">New to GitHub? <span className="text-text-blue cursor-pointer hover:underline">Create an account.</span></h1>
+                <h1 className="text-sm">New to GitHub?
+                    <Link href="/join">
+                        <span className="text-text-blue cursor-pointer hover:underline"> Create an account.</span>
+                    </Link>
+                </h1>
             </div>
 
             <h2 className="text-xs mt-16 hover:text-text-blue cursor-pointer hover:underline">Contact GitHub</h2>
