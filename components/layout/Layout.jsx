@@ -1,19 +1,26 @@
-import { useLoadingWithRefresh } from "@/hooks/useLoadingWithRefresh";
-import Loader from "./Loader";
+// import { useLoadingWithRefresh } from "@/hooks/useLoadingWithRefresh";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
 
-    const { loading } = useLoadingWithRefresh();
+    const router = useRouter();
+    const path = router.pathname;
+    // const { loading } = useLoadingWithRefresh();
 
-    return loading ? (
-        <Loader />
-    ) : (
-        <>
-            <main className="w-11/12 min-h-screen mx-auto lg:w-10/12">
-                {children}
-            </main>
-        </>
-    )
+    console.log(path)
+
+    return <div className="min-h-screen">
+        <Head>
+            <link rel="shortcut icon" href="/navbar/octocat.svg" />
+        </Head>
+        {(path !== '/login' && path !== '/join' && path !== '/reset_password') ? <Navbar /> : ""}
+        <main className="w-11/12 mx-auto min-w-max">
+            {children}
+        </main>
+    </div>
+
 }
 
 export default Layout
