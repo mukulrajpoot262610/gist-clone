@@ -1,9 +1,9 @@
 
 const Login = () => {
     return (
-        <div className="flex justify-center items-center flex-col h-screen">
+        <div className="flex justify-center items-center flex-col min-h-screen">
             <img src="/navbar/octocat.svg" className="h-16" />
-            <div className="bg-dark border border-border rounded-lg p-6 mt-10 flex flex-col justify-center items-center w-1/4">
+            <div className="bg-dark border border-border rounded-lg p-6 mt-10 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80">
                 <img src="/navbar/octocat.svg" className="h-8" />
                 <h1 className="my-5 text-text-white">Sign in to <span className="font-bold">GitHub Gist</span></h1>
                 <hr className="w-full border-border mb-5" />
@@ -25,7 +25,7 @@ const Login = () => {
                 </form>
             </div>
 
-            <div className="border-border border rounded-lg w-1/4 p-4 mt-6 text-center">
+            <div className="border-border border rounded-lg max-w-lg w-[95%] lg:w-80 p-4 mt-6 text-center">
                 <h1 className="text-sm">New to GitHub? <span className="text-text-blue cursor-pointer hover:underline">Create an account.</span></h1>
             </div>
 
