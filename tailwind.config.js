@@ -22,7 +22,7 @@ module.exports = {
           primary: '#347D39'
         },
         text: {
-          blue: "#3282F5",
+          blue: "#539bf5",
           white: '#CDD9E5',
           grey: '#768390',
           secondary: '#adbac7'

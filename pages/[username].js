@@ -1,3 +1,4 @@
+import GistItem from "@/components/profile/gistItem";
 import { useRouter } from "next/router";
 import { BiLink } from 'react-icons/bi';
 import { BsCodeSquare, BsTwitter } from 'react-icons/bs';
@@ -78,6 +79,11 @@ const Profile = () => {
                         </div>
                     </div>
                     <hr className="border-border-primary" />
+
+                    <div className="mt-6">
+                        <GistItem />
+                        <GistItem />
+                    </div>
                 </div>
             </div>
         </div>
