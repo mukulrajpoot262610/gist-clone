@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
             <link rel="shortcut icon" href="/navbar/octocat.svg" />
         </Head>
         {(path !== '/login' && path !== '/join' && path !== '/reset_password') ? <Navbar /> : ""}
-        <main className="w-11/12 mx-auto min-w-max">
+        <main className="mx-auto min-w-max">
             {children}
         </main>
     </div>

@@ -13,7 +13,10 @@ module.exports = {
       colors: {
         dark: '#2D333B',
         light: '#22272E',
-        border: "#444C56",
+        border: {
+          primary: "#444C56",
+          orange: "#EC775C"
+        },
         button: {
           secondary: '#373E47',
           primary: '#347D39'
