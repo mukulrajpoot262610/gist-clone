@@ -24,7 +24,8 @@ module.exports = {
         text: {
           blue: "#3282F5",
           white: '#CDD9E5',
-          grey: '#768390'
+          grey: '#768390',
+          secondary: '#adbac7'
         },
       },
       fontFamily: {
