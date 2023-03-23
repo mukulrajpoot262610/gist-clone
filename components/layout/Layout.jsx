@@ -1,4 +1,5 @@
 // import { useLoadingWithRefresh } from "@/hooks/useLoadingWithRefresh";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import Navbar from "./Navbar";
 
@@ -11,7 +12,10 @@ const Layout = ({ children }) => {
     console.log(path)
 
     return <div className="min-h-screen">
-        {(path !== '/login' && path !== '/join') ? <Navbar /> : ""}
+        <Head>
+            <link rel="shortcut icon" href="/navbar/octocat.svg" />
+        </Head>
+        {(path !== '/login' && path !== '/join' && path !== '/reset_password') ? <Navbar /> : ""}
         <main className="w-11/12 mx-auto min-w-max">
             {children}
         </main>
