@@ -2,15 +2,12 @@ import { BsCodeSquare, BsStar } from "react-icons/bs";
 import { FaRegCommentAlt } from "react-icons/fa";
 import { TbGitFork } from "react-icons/tb";
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { monokai } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 
 const GistItem = () => {
 
     const codeString = `const Square = (n) => return n * n
 
-const handleClick = (e) => {
-        console.log(e)
-}
 const handleClick = (e) => {
         console.log(e)
 }
@@ -52,7 +49,7 @@ const handleClick = (e) => {
 
             </div>
 
-            <div className="border-border-primary rounded-lg p-1 border mt-3 mb-10 pl-9 text-xs h-48 overflow-hidden hover:border-text-blue cursor-pointer">
+            <div className="border-border-primary rounded-lg p-1 border mt-3 mb-10 pl-7 text-xs max-h-48 overflow-hidden hover:border-text-blue cursor-pointer">
                 <SyntaxHighlighter language="javascript" style={monokai} showLineNumbers wrapLines showInlineLineNumbers customStyle={{ background: '#22272E' }}>
                     {codeString}
                 </SyntaxHighlighter>
