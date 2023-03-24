@@ -1,3 +1,6 @@
+import Head from "next/head"
+import Link from "next/link"
+import { useRouter } from "next/router"
 import { useState } from "react"
 import { BiCaretDown, BiCopy } from "react-icons/bi"
 import { BsCheckLg, BsCodeSquare } from "react-icons/bs"
@@ -7,6 +10,8 @@ import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/default-highlig
 import { monokai } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 const Gist = () => {
+
+    const { query } = useRouter()
 
     const [menuActive, setMenuActive] = useState(false)
     const [selectedMenu, setSelectedMenu] = useState("Embed")
@@ -23,10 +28,18 @@ const handleClick = (e) => {
 
     return (
         <div className="min-h-screen">
+
+            <Head>
+                <title>Alternative file of MARCS interpolation code</title>
+            </Head>
+
             <div className="flex justify-start items-start gap-2 p-6">
                 <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="h-8 rounded-full" />
                 <div className="text-xs">
-                    <h1 className="text-xl text-text-secondary"><span className="text-text-blue hover:underline cursor-pointer">mukulrajpoot262610</span> / <span className="text-text-blue hover:underline font-semibold cursor-pointer">test.html</span></h1>
+                    <h1 className="text-xl text-text-secondary">
+                        <Link href={`/${query.username}`}>
+                            <span className="text-text-blue hover:underline cursor-pointer">{query.username}</span>
+                        </Link> / <span className="text-text-blue hover:underline font-semibold cursor-pointer">test.html</span></h1>
                     <p>Created 2 weeks ago</p>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { BiCaretDown, BiPlus } from 'react-icons/bi'
 import { FaBars } from 'react-icons/fa'
 
@@ -7,7 +8,9 @@ const Navbar = () => {
             <div className="flex justify-between items-center h-full px-4">
                 <div className="justify-center items-center gap-4 font-semibold text-sm text-text-white hidden lg:flex">
                     <img src="/navbar/logo.png" className="h-8" />
-                    <h2 className="cursor-pointer hover:text-white">All gists</h2>
+                    <Link href="/discover">
+                        <h2 className="cursor-pointer hover:text-white">All gists</h2>
+                    </Link>
                     <h2 className="cursor-pointer hover:text-white">Back to GitHub</h2>
                 </div>
 
@@ -15,7 +18,9 @@ const Navbar = () => {
                 <img src="/navbar/octocat.svg" className="h-6 lg:hidden" />
 
                 <div className="flex justify-center items-center gap-3 font-semibold text-sm text-text-white">
-                    <BiPlus className="cursor-pointer hover:text-white text-lg" />
+                    <Link href="/create">
+                        <BiPlus className="cursor-pointer hover:text-white text-lg" />
+                    </Link>
                     <div className='hidden lg:flex justify-center items-center cursor-pointer hover:text-white'>
                         <img src="https://avatars.githubusercontent.com/u/73209159?s=40&v=4" className="h-5 rounded-full" />
                         <BiCaretDown className="  text-base" />
