@@ -10,7 +10,7 @@ const Join = () => {
             <div className="flex justify-center items-center flex-col min-h-screen">
                 <img src="/navbar/octocat.svg" className="h-16" />
                 <h1 className="mt-6 text-2xl font-light">Join GitHub</h1>
-                <div className="bg-dark border border-border rounded-lg p-6 mt-6 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80">
+                <div className="bg-dark border border-border-primary rounded-lg p-6 mt-6 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80">
                     <form className="w-full">
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
@@ -37,7 +37,7 @@ const Join = () => {
                     </form>
                 </div>
 
-                <div className="border-border border rounded-lg max-w-lg w-[95%] lg:w-80 p-4 mt-6 text-center">
+                <div className="border-border-primary border rounded-lg max-w-lg w-[95%] lg:w-80 p-4 mt-6 text-center">
                     <h1 className="text-sm">Already have an Account?
                         <Link href="/login">
                             <span className="text-text-blue cursor-pointer hover:underline"> Sign in.</span>

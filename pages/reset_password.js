@@ -9,7 +9,7 @@ const ResetPassword = () => {
             <div className="flex justify-center items-center flex-col min-h-screen">
                 <img src="/navbar/octocat.svg" className="h-16" />
                 <h1 className="mt-6 text-2xl font-light">Reset your password</h1>
-                <div className="bg-dark border border-border rounded-lg p-6 mt-6 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80">
+                <div className="bg-dark border border-border-primary rounded-lg p-6 mt-6 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80">
                     <h1 className="mb-5 text-text-white text-sm font-bold">Enter your user account verified email address</h1>
                     <form className="w-full">
                         <div className="form-control w-full max-w-xs">

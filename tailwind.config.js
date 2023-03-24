@@ -13,15 +13,19 @@ module.exports = {
       colors: {
         dark: '#2D333B',
         light: '#22272E',
-        border: "#444C56",
+        border: {
+          primary: "#444C56",
+          orange: "#EC775C"
+        },
         button: {
           secondary: '#373E47',
           primary: '#347D39'
         },
         text: {
-          blue: "#3282F5",
+          blue: "#539bf5",
           white: '#CDD9E5',
-          grey: '#768390'
+          grey: '#768390',
+          secondary: '#adbac7'
         },
       },
       fontFamily: {

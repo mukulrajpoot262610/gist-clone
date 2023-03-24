@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["daisyui", "Mukul", "octocat", "Rajpoot"],
+  "cSpell.words": [
+    "daisyui",
+    "extralight",
+    "Mukul",
+    "mukulrajpoot",
+    "octocat",
+    "Rajpoot"
+  ],
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
