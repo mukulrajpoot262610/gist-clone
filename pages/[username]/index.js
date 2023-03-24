@@ -1,4 +1,5 @@
 import GistItem from "@/components/profile/gistItem";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { BiLink } from 'react-icons/bi';
 import { BsCodeSquare, BsTwitter } from 'react-icons/bs';
@@ -8,10 +9,14 @@ import { GoLocation } from 'react-icons/go';
 const Profile = () => {
 
     const { query } = useRouter();
-    console.log(query.username)
 
     return (
         <div className="mx-auto max-w-7xl h-full w-full p-7">
+
+            <Head>
+                <title>{query.username}&apos;s gists</title>
+            </Head>
+
             <div className="grid grid-cols-12 w-full">
 
                 <div className="col-span-3 p-3">
@@ -24,7 +29,7 @@ const Profile = () => {
 
                     <div className="my-4">
                         <h1 className="text-text-secondary text-2xl font-semibold">Mukul Rajpoot</h1>
-                        <h2 className="font-extralight text-xl tracking-tighter">mukulrajpoot262610</h2>
+                        <h2 className="font-extralight text-xl tracking-tighter">{query.username}</h2>
 
                         <h3 className="text-text-secondary font-normal mt-4">Full-Stack Developer / Website and WebApps / Learning Web3</h3>
 
