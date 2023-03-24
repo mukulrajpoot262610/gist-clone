@@ -1,14 +1,25 @@
 import { useState } from "react"
 import { BiCaretDown, BiCopy } from "react-icons/bi"
-import { BsCheckLg } from "react-icons/bs"
+import { BsCheckLg, BsCodeSquare } from "react-icons/bs"
 import { MdOutlineCode } from "react-icons/md"
+import { SiMarkdown } from "react-icons/si"
+import SyntaxHighlighter from "react-syntax-highlighter/dist/cjs/default-highlight"
+import { monokai } from "react-syntax-highlighter/dist/cjs/styles/hljs"
 
 const Gist = () => {
 
-    const [menuActive, setMenuActive] = useState(true)
+    const [menuActive, setMenuActive] = useState(false)
     const [selectedMenu, setSelectedMenu] = useState("Embed")
 
-    console.log(menuActive)
+    const codeString = `const Square = (n) => return n * n
+
+const handleClick = (e) => {
+        console.log(e)
+}
+const handleClick = (e) => {
+        console.log(e)
+}
+`
 
     return (
         <div className="min-h-screen">
@@ -76,9 +87,52 @@ const Gist = () => {
                     <button className="btn btn-sm text-text-secondary border-border-primary capitalize text-xs bg-button-secondary hover:bg-button-secondary">Download ZIP</button>
                 </div>
             </div>
+
             <hr className='border-border-primary' />
 
-            <div className=''></div>
+            <div className='max-w-5xl mx-auto p-4'>
+                <p className="text-text-secondary text-sm">Alternative file of MARCS interpolation code</p>
+
+                <div className="border-border-primary border rounded-lg mt-3">
+                    <div className="bg-dark border-b border-border-primary rounded-t-lg p-3 flex items-center gap-2">
+                        <BsCodeSquare className='font-bold text-sm' />
+                        <h3 className="text-xs font-semibold text-text-blue hover:underline cursor-pointer">All Gists</h3>
+                    </div>
+
+                    <div className="rounded-lg pl-4 text-xs">
+                        <SyntaxHighlighter language="javascript" style={monokai} showLineNumbers wrapLines showInlineLineNumbers customStyle={{ background: '#22272E', borderRadius: '8px' }}>
+                            {codeString}
+                        </SyntaxHighlighter>
+                    </div>
+                </div>
+
+                <hr className="border-border-primary my-4" />
+
+                <div className="flex gap-3 items-start">
+                    <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="rounded-full border-border-primary border h-10" />
+
+                    <div className="border-border-primary border rounded-lg mt-3 w-full">
+                        <div className="bg-dark rounded-t-lg pt-2 px-2">
+                            <div className="tabs border-border-primary text-text-secondary text-sm">
+                                <a className="p-2 tab-active px-4 border bg-light border-b-0 rounded-t-lg border-border-primary">Write</a>
+                                <a className="p-2 tab-active px-4 text-text-grey border-border-primary">Preview</a>
+                            </div>
+                        </div>
+
+                        <div className="border-border-primary border m-4 mb-2 rounded-lg flex flex-col">
+                            <textarea className="textarea w-full min-h-24 rounded-b-none border-0 border-b border-dashed border-border-primary text-text-secondary placeholder:text-text-grey" placeholder="Leave a comment" />
+                            <div className="w-full h-8 rounded-b-lg bg-dark text-xs flex items-center px-4 justify-between">
+                                Attach files by dragging & dropping, selecting or pasting them.
+                                <SiMarkdown className="text-lg" />
+                            </div>
+                        </div>
+
+                        <div className="flex justify-end items-center m-4 mt-2">
+                            <button className="btn btn-sm bg-button-primary hover:bg-button-primary text-white border-border-primary capitalize text-xs">Comment</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
