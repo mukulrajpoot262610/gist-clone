@@ -2,13 +2,16 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { BiCaretDown, BiPlus } from 'react-icons/bi'
 import { FaBars } from 'react-icons/fa'
+import { FiLogOut } from 'react-icons/fi'
 
 const Navbar = () => {
 
     const [menuActive, setMenuActive] = useState(false)
+    const [mobileMenuActive, setMobileMenuActive] = useState(false)
 
     return (
-        <nav className="w-full h-16 bg-dark">
+        <nav className="w-full h-16 bg-dark z-40 relative">
+
             <div className="flex justify-between items-center h-full px-4">
                 <div className="justify-center items-center gap-4 font-semibold text-sm text-text-white hidden lg:flex">
                     <img src="/navbar/logo.png" className="h-8" />
@@ -20,7 +23,7 @@ const Navbar = () => {
                     </a>
                 </div>
 
-                <FaBars className="cursor-pointer hover:text-white text-xl lg:hidden" />
+                <FaBars className="cursor-pointer hover:text-white text-xl lg:hidden" onClick={() => setMobileMenuActive(!mobileMenuActive)} />
                 <img src="/navbar/octocat.svg" className="h-6 lg:hidden" />
 
                 <div className="flex justify-center items-center gap-3 font-semibold text-sm text-text-white">
@@ -33,7 +36,7 @@ const Navbar = () => {
                     </div>
 
                     {
-                        menuActive && <ul className="menu menu-compact lg:menu-normal w-48 absolute top-12 border-border-primary border rounded-lg right-4 bg-dark">
+                        menuActive && <ul className="hidden lg:block menu menu-compact lg:menu-normal w-48 absolute top-12 border-border-primary border rounded-lg right-4 bg-dark">
                             <Link href="/mukulrajpoot262610" onClick={() => setMenuActive(!menuActive)}>
                                 <div className="p-3 flex cursor-pointer">
                                     <div>
@@ -70,6 +73,33 @@ const Navbar = () => {
                     }
                 </div>
             </div>
+
+            {
+                mobileMenuActive && <div className='bg-dark h-44 p-4 pt-0 z-40'>
+                    <hr className='border-border-primary' />
+                    <Link href="/discover" onClick={() => setMobileMenuActive(!mobileMenuActive)}>
+                        <p className="text-sm hover:text-white hover:bg-text-blue p-2 w-full font-semibold text-text-white">All Gists</p>
+                    </Link>
+                    <hr className='border-border-primary' />
+                    <a href="https://github.com/mukulrajpoot262610" onClick={() => setMobileMenuActive(!mobileMenuActive)}>
+                        <p className="text-sm hover:text-white hover:bg-text-blue p-2 w-full font-semibold text-text-white">Back to GitHub</p>
+                    </a>
+                    <hr className='border-border-primary' />
+                    <a href="https://github.com/mukulrajpoot262610" onClick={() => setMobileMenuActive(!mobileMenuActive)}>
+                        <div className='flex justify-center items-center cursor-pointer hover:text-white relative' onClick={() => setMobileMenuActive(!mobileMenuActive)}>
+                            <img src="https://avatars.githubusercontent.com/u/73209159?s=40&v=4" className="h-5 rounded-full" />
+                            <p className="text-sm hover:text-white hover:bg-text-blue p-2 w-full font-semibold text-text-white">mukulrajpoot262610</p>
+                        </div>
+                    </a>
+                    <hr className='border-border-primary' />
+                    <a href="https://github.com/mukulrajpoot262610" onClick={() => setMobileMenuActive(!mobileMenuActive)} className="flex items-center">
+                        <FiLogOut className='text-text-white' />
+                        <p className="text-sm hover:text-white hover:bg-text-blue p-2 w-full font-semibold text-text-white">Sign Out</p>
+                    </a>
+                </div>
+            }
+
+
         </nav>
     )
 }

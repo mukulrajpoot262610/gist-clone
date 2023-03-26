@@ -44,7 +44,8 @@ const handleClick = (e) => {
                 </div>
             </div>
 
-            <div className="flex justify-between items-center px-6">
+            <div className="flex justify-between lg:items-center px-6 flex-col-reverse lg:flex-row">
+
                 <div className="tabs">
                     <a className={`tab-bordered border-border-orange`}>
                         <div className='flex items-center gap-2 my-1 rounded-lg hover:bg-dark p-2 cursor-pointer'>
@@ -54,9 +55,9 @@ const handleClick = (e) => {
                     </a>
                 </div>
 
-                <div className="flex justify-center items-center gap-2">
+                <div className="flex justify-center max-w-5xl lg:items-center gap-2 flex-col-reverse lg:flex-row">
 
-                    <div className="flex justify-center items-center rounded-lg relative">
+                    <div className="hidden lg:flex justify-center items-center rounded-lg relative">
                         <div className="rounded-l-lg bg-button-secondary p-1.5 text-xs border-border-primary border text-text-secondary px-4 font-medium flex justify-center items-center gap-1 cursor-pointer" onClick={() => setMenuActive(!menuActive)}>
                             {selectedMenu} <BiCaretDown className="text-sm" />
                         </div>
@@ -122,7 +123,7 @@ const handleClick = (e) => {
                 <hr className="border-border-primary my-4" />
 
                 <div className="flex gap-3 items-start">
-                    <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="rounded-full border-border-primary border h-10" />
+                    <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="rounded-full border-border-primary border h-10 hidden lg:block" />
 
                     <div className="border-border-primary border rounded-lg mt-3 w-full">
                         <div className="bg-dark rounded-t-lg pt-2 px-2">
@@ -134,7 +135,7 @@ const handleClick = (e) => {
 
                         <div className="border-border-primary border m-4 mb-2 rounded-lg flex flex-col">
                             <textarea className="textarea w-full min-h-24 rounded-b-none border-0 border-b border-dashed border-border-primary text-text-secondary placeholder:text-text-grey" placeholder="Leave a comment" />
-                            <div className="w-full h-8 rounded-b-lg bg-dark text-xs flex items-center px-4 justify-between">
+                            <div className="w-full h-8 rounded-b-lg bg-dark text-xs items-center px-4 justify-between hidden lg:flex">
                                 Attach files by dragging & dropping, selecting or pasting them.
                                 <SiMarkdown className="text-lg" />
                             </div>

@@ -11,18 +11,18 @@ const Profile = () => {
     const { query } = useRouter();
 
     return (
-        <div className="mx-auto max-w-7xl h-full w-full p-7">
+        <div className="mx-auto max-w-7xl h-full w-full">
 
             <Head>
                 <title>{query.username}&apos;s gists</title>
             </Head>
 
-            <div className="grid grid-cols-12 w-full">
+            <div className="grid grid-cols-12">
 
-                <div className="col-span-3 p-3">
+                <div className="col-span-12 lg:col-span-3 p-3">
                     <div className="relative">
-                        <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="rounded-full border-border-primary border" />
-                        <div className="absolute bottom-10 right-1 rounded-full border-border-primary border w-10 h-10 bg-light flex justify-center items-center">
+                        <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="rounded-full border-border-primary border h-20 lg:h-full" />
+                        <div className="absolute bottom-10 right-1 rounded-full border-border-primary border w-10 h-10 bg-light justify-center items-center hidden lg:flex">
                             <h1>🚬</h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@ const Profile = () => {
                         <h1 className="text-text-secondary text-2xl font-semibold">Mukul Rajpoot</h1>
                         <h2 className="font-extralight text-xl tracking-tighter">{query.username}</h2>
 
-                        <h3 className="text-text-secondary font-normal mt-4">Full-Stack Developer / Website and WebApps / Learning Web3</h3>
+                        <p className="text-text-secondary font-normal mt-4 max-w-3xl">Full-Stack Developer</p>
 
                         <div className="flex justify-start items-center mt-4 gap-2">
                             <div className="flex items-center gap-1 text-sm cursor-pointer hover:text-text-blue">
@@ -62,8 +62,9 @@ const Profile = () => {
                     </div>
                 </div>
 
-                <div className="col-span-9 p-3">
-                    <div className="flex justify-between items-center">
+                <div className="col-span-12 lg:col-span-9">
+
+                    <div className="flex justify-between items-center pt-3">
                         <div className="tabs text-text-secondary">
                             <a className={`tab-bordered border-border-orange`}>
                                 <div className='flex items-center gap-2 m-1 mx-0 rounded-lg hover:bg-dark p-1 cursor-pointer text-sm'>
@@ -85,10 +86,11 @@ const Profile = () => {
                     </div>
                     <hr className="border-border-primary" />
 
-                    <div className="mt-6">
+                    <div className="p-3">
                         <GistItem />
                         <GistItem />
                     </div>
+
                 </div>
             </div>
         </div>
