@@ -9,12 +9,15 @@ const CreateGist = () => {
 
     return (
         <div>
-            <div className="max-w-5xl mx-auto py-6 flex justify-end font-semibold text-sm text-text-blue cursor-pointer hover:underline">
+            <div className="max-w-5xl mx-auto py-6 justify-end font-semibold text-sm text-text-blue cursor-pointer hover:underline lg:flex hidden">
                 View your Gists
+            </div>
+            <div className="p-4 lg:hidden">
+                <button className="btn btn-sm text-text-secondary border-border-primary capitalize text-xs bg-button-secondary hover:bg-button-secondary w-full">View your Gists</button>
             </div>
             <hr className="border-border-primary" />
 
-            <div className="max-w-5xl mx-auto my-6">
+            <div className="max-w-5xl mx-auto p-4">
                 <input className="input input-sm border-border-primary bg-light placeholder:text-text-grey text-xs w-full text-text-secondary" placeholder="Gist Description..." />
 
                 <div className="border-border-primary border mt-4 rounded-lg">
@@ -24,7 +27,6 @@ const CreateGist = () => {
                     <div className="h-80">
                         <textarea className="textarea border-0 w-full h-80"></textarea>
                     </div>
-
                 </div>
 
                 <div className="mt-3 flex justify-between items-center">

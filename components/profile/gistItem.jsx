@@ -18,9 +18,9 @@ const handleClick = (e) => {
 
     return (
         <div className="my-2">
-            <div className="flex justify-between items-start">
+            <div className="flex justify-between items-start flex-col lg:flex-row">
                 <div className="flex justify-start items-start gap-2">
-                    <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="h-8 rounded-full" />
+                    <img src="https://avatars.githubusercontent.com/u/73209159?v=4" className="h-8 rounded-full lg:block hidden" />
                     <div className="text-xs">
                         <h1 className="text-sm text-text-secondary"><span className="text-text-blue hover:underline cursor-pointer">mukulrajpoot262610</span> / <span className="text-text-blue hover:underline font-semibold cursor-pointer">test.html</span></h1>
                         <p>Created 2 weeks ago</p>
@@ -28,7 +28,7 @@ const handleClick = (e) => {
                     </div>
                 </div>
 
-                <div className="flex justify-center items-center gap-4">
+                <div className="flex justify-center items-center gap-4 mt-2 lg:mt-0">
                     <div className='flex items-center gap-1 cursor-pointer hover:text-text-blue text-xs text-text-grey'>
                         <BsCodeSquare className='font-bold text-sm' />
                         <h3>1 file</h3>
