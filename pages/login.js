@@ -1,7 +1,36 @@
-import Head from "next/head"
-import Link from "next/link"
+import { login } from "@/services/api";
+import Head from "next/head";
+import Link from "next/link";
+import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [buttonLoading, setButtonLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setButtonLoading(true);
+
+        const payload = {
+            email,
+            password,
+        }
+
+        try {
+            const res = await login(payload);
+            toast.success("Login Successful");
+        } catch (err) {
+            console.log(err);
+            toast.error(err.response.data.message)
+        } finally {
+            setButtonLoading(false);
+        }
+    }
+
+
     return (
         <>
             <Head>
@@ -11,12 +40,12 @@ const Login = () => {
                 <img src="/navbar/octocat.svg" className="h-16" />
                 <h1 className="mt-6 text-2xl font-light">Sign in to GitHub</h1>
                 <div className="bg-dark border border-border-primary rounded-lg p-6 mt-6 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80">
-                    <form className="w-full">
+                    <form className="w-full" onSubmit={handleSubmit}>
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text text-text-white font-light">Username or email address</span>
+                                <span className="label-text text-text-white font-light">Email address</span>
                             </label>
-                            <input type="text" className="input input-bordered w-full max-w-xs bg-light input-sm" />
+                            <input type="text" className="input input-bordered w-full max-w-xs bg-light input-sm" onChange={(e) => setEmail(e.target.value)} value={email} required />
                         </div>
                         <div className="form-control w-full max-w-xs mt-3">
                             <label className="label">
@@ -25,9 +54,9 @@ const Login = () => {
                                     <span className="label-text text-text-blue text-xs cursor-pointer hover:underline">Forgot Password?</span>
                                 </Link>
                             </label>
-                            <input type="password" className="input input-bordered w-full max-w-xs bg-light input-sm" />
+                            <input type="password" className="input input-bordered w-full max-w-xs bg-light input-sm" onChange={(e) => setPassword(e.target.value)} value={password} required />
                         </div>
-                        <button className="btn btn-sm w-full mt-4 bg-button-primary text-white border-button-primary capitalize hover:bg-button-primary hover:border-button-primary">Sign in</button>
+                        <button className={`btn btn-sm w-full mt-4 bg-button-primary text-white border-button-primary capitalize hover:bg-button-primary hover:border-button-primary ${buttonLoading && "loading"}`}>Sign in</button>
                     </form>
                 </div>
 
