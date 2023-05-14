@@ -1,10 +1,16 @@
-import { login } from "@/services/api";
+import { setAuth } from "@/global/authSlice";
+import { getUserData, login } from "@/services/api";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { toast } from "react-hot-toast";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
+
+    const dispatch = useDispatch();
+    const router = useRouter()
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,9 +28,12 @@ const Login = () => {
         try {
             const res = await login(payload);
             toast.success("Login Successful");
+            const { data } = await getUserData();
+            dispatch(setAuth(data));
+            router.replace("/create");
         } catch (err) {
             console.log(err);
-            toast.error(err.response.data.message)
+            toast.error(err.response?.data?.message)
         } finally {
             setButtonLoading(false);
         }

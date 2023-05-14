@@ -1,5 +1,6 @@
 import { verifyEmail } from "@/services/api";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -35,6 +36,10 @@ const VerifyEmail = () => {
                 <h1 className="mt-6 text-2xl font-light">Verify Email</h1>
                 <div className="bg-dark border border-border-primary rounded-lg p-6 mt-6 flex flex-col justify-center items-center max-w-lg w-[95%] lg:w-80 text-center">
                     {data.message}
+
+                    <Link href="/login">
+                        <button className={`btn btn-sm w-full mt-4 bg-button-primary text-white border-button-primary capitalize hover:bg-button-primary hover:border-button-primary`}>Login Now</button>
+                    </Link>
                 </div>
 
                 <h2 className="text-xs mt-16 hover:text-text-blue cursor-pointer hover:underline">Contact GitHub</h2>
