@@ -1,7 +1,8 @@
+import { setAuth } from "@/global/authSlice";
+import { getUserData } from "@/services/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setAuth } from "redux/authSlice";
 
 export function useLoadingWithRefresh() {
     const [loading, setLoading] = useState(true);
@@ -10,12 +11,13 @@ export function useLoadingWithRefresh() {
     useEffect(() => {
         (async () => {
             try {
-                const { data } = await axios.get(
-                    `${process.env.NEXT_PUBLIC_API_URL}/api/refresh`,
+                const res = await axios.get(
+                    `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`,
                     {
                         withCredentials: true,
                     }
                 );
+                const { data } = await getUserData();
                 dispatch(setAuth(data));
                 setLoading(false);
             } catch (err) {

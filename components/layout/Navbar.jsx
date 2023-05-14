@@ -3,11 +3,16 @@ import { useState } from 'react'
 import { BiCaretDown, BiPlus } from 'react-icons/bi'
 import { FaBars } from 'react-icons/fa'
 import { FiLogOut } from 'react-icons/fi'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
 
     const [menuActive, setMenuActive] = useState(false)
     const [mobileMenuActive, setMobileMenuActive] = useState(false)
+
+    const { user } = useSelector(state => state.auth);
+
+    console.log(user)
 
     return (
         <nav className="w-full h-16 bg-dark z-40 relative">
@@ -37,11 +42,11 @@ const Navbar = () => {
 
                     {
                         menuActive && <ul className="hidden lg:block menu menu-compact lg:menu-normal w-48 absolute top-12 border-border-primary border rounded-lg right-4 bg-dark">
-                            <Link href="/mukulrajpoot262610" onClick={() => setMenuActive(!menuActive)}>
+                            <Link href={`/${user?.username}`} onClick={() => setMenuActive(!menuActive)}>
                                 <div className="p-3 flex cursor-pointer">
                                     <div>
                                         <p className="text-sm font-light">Signed in as</p>
-                                        <p className="font-medium text-text-secondary text-sm">mukulrajpoot262610</p>
+                                        <p className="font-medium text-text-secondary text-sm">{user?.username}</p>
                                     </div>
                                 </div>
                             </Link>
